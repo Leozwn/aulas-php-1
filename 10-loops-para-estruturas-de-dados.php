@@ -62,7 +62,7 @@
         <hr>
 
         <h2>Usando foreach para array associativo</h2>
-        
+
         <?php 
         $curso = [
             "titulo" => "Gastronomia",
@@ -82,6 +82,20 @@
             <p><i><?= $valor ?></i></p>
         <?php 
         endforeach; 
+        ?>
+
+        <hr>
+
+        <h2>Usando foreach em uma matriz</h2>
+
+        <?php
+            foreach($planoDeEstudos as $categoria): // Cada linha (categoria)
+                foreach($categoria as $assunto): // Cada coluna (assunto/curso)
+        ?>
+            <p><?= $assunto ?></p>
+        <?php
+                endforeach;
+            endforeach;
         ?>
 
     </div>
