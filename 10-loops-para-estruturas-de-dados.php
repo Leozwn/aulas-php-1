@@ -98,6 +98,30 @@
             endforeach;
         ?>
 
+        <hr>
+
+        <h2>Usando foreach em uma matriz associativa</h2>
+
+        <?php
+            $clientes = [
+                [
+                    "nome" => "Juliene",
+                    "email" => "ju@senac.br"
+                ],
+                [
+                    "nome" => "Luiz",
+                    "email" => "luiz@senac.br"
+                ]
+            ];
+
+            foreach($clientes as $cliente):
+        ?>
+            <p> <b>Nome:</b> <span class="bg-primary-subtle p-1"> <?= $cliente["nome"] ?> </span> </p>
+            <p> <b>E-mail:</b> <span class="bg-dark-subtle p-1"> <?= $cliente["email"] ?> </span> </p>
+        <?php
+            endforeach;
+        ?>
+
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
