@@ -49,7 +49,7 @@
         <hr>
 
         <h2>Usando o loop foreach para arrays</h2>
-        
+
         <?php  
         $alunos = ["Thiago", "Adela", "Renan", "Pérola"];
         foreach($alunos as $aluno):
@@ -57,6 +57,31 @@
             <p> <?= $aluno ?> </p>
         <?php  
         endforeach;
+        ?>
+
+        <hr>
+
+        <h2>Usando foreach para array associativo</h2>
+        
+        <?php 
+        $curso = [
+            "titulo" => "Gastronomia",
+            "carga_horaria" => 200,
+            "descricao"=> "Aprender o básico sobre a área"
+        ];
+        // Extraindo chave com valor
+        foreach($curso as $chave => $valor):
+        ?>
+            <p><b><?= $chave?></b>: <?= $valor ?></p>
+        <?php 
+        endforeach; 
+
+        // Extraindo somente o valor
+        foreach($curso as $valor):
+        ?>
+            <p><i><?= $valor ?></i></p>
+        <?php 
+        endforeach; 
         ?>
 
     </div>
