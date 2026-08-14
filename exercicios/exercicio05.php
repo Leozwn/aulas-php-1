@@ -22,7 +22,6 @@
             }
 
             $media = calcularMedia($nota1, $nota2, $nota3);
-            $formatarMedia = number_format($media, 2, ".");
 
             function mostrarMedia(float $media):string{
                 if($media < 7) return "Reprovado";
@@ -33,7 +32,7 @@
         <hr>
 
         <h3>Aluno: Marcos De Oliveira</h2>
-        <p>Média do Aluno: <b><?= $formatarMedia ?></b></p>
+        <p>Média do Aluno: <b><?= number_format($media, 2) ?></b></p>
         <p>Situação do aluno: <b><?= mostrarMedia($media) ?></b></p>
     </div>
 
