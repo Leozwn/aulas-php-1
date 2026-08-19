@@ -24,7 +24,18 @@
                 <p class="text-success">E-mail correto!</p>
             <?php else: ?>
                 <p class="text-danger">E-mail incorreto!</p>
-            <?php endif; ?>               
+            <?php endif; ?>    
+            
+        <h3>FILTER_VALIDATE_URL</h3>
+        <?php 
+        $redeSocial = "https://linkedin.com/in/leonardo-dev-fullstack/";
+        $redeSocialValida = filter_var($redeSocial, FILTER_VALIDATE_URL);
+        ?>
+            <pre><?php var_dump($redeSocialValida) ?></pre>
+
+        <?php if($redeSocialValida): ?>
+            <a href="<?= $redeSocial ?>" class="btn btn-info">Me siga no LinkedIn</a>
+        <?php endif; ?>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
