@@ -1,5 +1,5 @@
 <?php // recursos.php
-const ALUNO = "Tiago";
+const ALUNO = "Léo";
 $curso = "Técnico em Informática para Internet";
 $tecnologias = ["PHP", "SQL", "HTML", "CSS", "JavaScript"];
 function verificarIdade(int $idade):string {
