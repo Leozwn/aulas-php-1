@@ -1,3 +1,7 @@
+<?php 
+// Definindo um caminho de base/referencia para os links
+const BASE = "/site/";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
