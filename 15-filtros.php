@@ -62,7 +62,18 @@
         // Simulando de um ataque de injeção de código JS (XSS - CROSS site Scripting)
         $ataqueXSS ="<script>location = 'https://sp.senac.br'</script>";
         ?>
-            <p>Teste: <?=filter_var($ataqueXSS, FILTER_SANITIZE_FULL_SPECIAL_CHARS ) ?></p>
+        <p>Teste: 
+            S<?=filter_var($ataqueXSS, FILTER_SANITIZE_FULL_SPECIAL_CHARS ) ?>
+        </p>
+
+        <h3>htmlspecialchars()</h3>
+        <p>Pode ser usado como alternativa ao filtro.</p>
+<?php
+$nomeCompletoCorrigido = htmlspecialchars($nomeCompleto);
+$ataqueEvitado = htmlspecialchars($ataqueXSS);
+?>
+    <p>Nome completo corrigido: <?= $nomeCompletoCorrigido ?></p>
+    <p>Ataque evitado: <?= $ataqueEvitado ?></p>
 
 </div>
 
