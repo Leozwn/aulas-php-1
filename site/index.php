@@ -1,23 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site usando PHP</title>
-</head>
-<body>
-    <head>
-        <h1>Site com PHP</h1>
-        <nav>
-            <a href="index.php">Home</a>
-            <a href="cursos.php">Cursos</a>
-            <a href="duvidas.php">Dúvidas</a>
-        </nav>
-    </head>
+<?php require "cabecalho.php"?>
 
-    <main>
-        <h2>Bem-vindo ao site de exemplo</h2>
-        <p>Esta é a primeira página do nosso site</p>
-    </main>
-</body>
-</html>
+    <h2>Bem-vindo ao site de exemplo</h2>
+    <p>Esta é a primeira página do nosso site</p>
+
+<?php require "rodape.php"?>
