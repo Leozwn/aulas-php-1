@@ -75,6 +75,14 @@ $ataqueEvitado = htmlspecialchars($ataqueXSS);
     <p>Nome completo corrigido: <?= $nomeCompletoCorrigido ?></p>
     <p>Ataque evitado: <?= $ataqueEvitado ?></p>
 
+    <h3>FILTER_SANITIZE_NUMBER_INT</h3>
+    <?php 
+    $idade = "Tenho 15 anos";
+    $idade = filter_var($idade, FILTER_SANITIZE_NUMBER_INT);
+    ?>
+        <p>Idade: <?= $idade ?></p>
+
+        
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
