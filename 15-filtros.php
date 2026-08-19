@@ -9,139 +9,25 @@
 <body>
     
     <div class="container">
-        <h1>Funções nativas para arrays</h1>
-        <hr>
+      <h1>Filtros para validação e sanitização</h1>
+      <hr>
+      <p>Filtros são recursos de análise e Limpeza de dados aplicados através de funções especiais, normalmente as funções <code>filter_var()</code> e <code>filter_input()</code> e também com o uso de <b>constantes</b> de validação/sanitização.</p>
+      
+      <h2>validação</h2>
+      <h3>FILTER_VALIDATE_EMAIL</h3>
+      <?php 
+      $email = "email@provedor.com";
+      $emailValido = filter_var($email, FILTER_VALIDATE_EMAIL);
+      ?>
+            <pre><?php var_dump($emailValido) ?></pre>
+            <?php if ($emailValido): ?>
+                <p class="text-success">E-mail correto!</p>
+            <?php else: ?>
+                <p class="text-danger">E-mail incorreto!</p>
+            <?php endif; ?>               
+</div>
 
-        <h2>implode()</h2>
-        <p>Transforma array em uma string.</p>
-        <?php
-            $arrayBandas = ["Pink Floyd", "Genensis", "Yes"];
-            $textoBandas = implode(" - ", $arrayBandas);
-        ?>
-        <pre><?php var_dump($arrayBandas) ?></pre>
-        <pre><?php var_dump($textoBandas) ?></pre>
-
-        <hr>
-
-        <h2>extract()</h2>
-        <p>Extrai chaves associativas para variáveis.</p>
-        <?php
-            $nome = "Beltrano";
-
-            $aluno = ["id" => 1, "nome" => "Fulano", "idade" => 25];
-            extract($aluno, EXTR_PREFIX_ALL, "chave");
-            /* Usamos o segundo parâmetro para definir um prefixo para os nomes. */
-            /* Isso evita conflito/sobreescrita de outras variáveis. */
-        ?>
-        <ul>
-            <li>ID: <?= $chave_id ?></li>
-            <li>Nome: <?= $chave_nome ?></li>
-            <li>Idade: <?= $chave_idade ?></li>
-        </ul>
-        <p>Variável <code>$nome</code> original: <?= $nome ?></p>
-
-        <hr>
-
-        <h2>array_sum()</h2>
-        <p>Somando os valores de um array</p>
-        <?php
-            $carrinhoDeCompras = [
-                "TV_Led" => 1200,
-                "Ultrabook" => 2500,
-                "Geladeira" => 3000,
-            ];
-            $total = array_sum($carrinhoDeCompras);
-        ?>
-        <p>Total: <?= $total ?></p>
-
-        <hr>
-
-        <h2>array_unique()</h2>
-        <p>Gera um novo array removendo elementos duplicados/repetidos em um array.</p>
-        <?php
-            $categorias = [
-                "Eletrônicos", "Livros", "Roupas", "Livros", "Games",
-                "Eletrônicos",
-            ];
-            $categoriasUnicas = array_unique($categorias);
-        ?>
-        <pre><?php var_dump($categorias) ?></pre>
-        <pre><?php var_dump($categoriasUnicas) ?></pre>
-
-        <hr>
-
-        <h2>array_merge()</h2>
-        <p>Junto dados de arrays diferentes.</p>
-        <?php
-            $produtosFilialNorte = ["Mouse", "Teclado"];
-            $produtosFilialSul = ["Monitor", "Webcam", "Pendrive", "Teclado"];
-
-            // $produtos = array_merge($produtosFilialNorte, $produtosFilialSul);
-            /* Podemos combinar funções de array (abaixo, merge e depois unique) */
-            $produtos = array_unique(
-                array_merge($produtosFilialNorte, $produtosFilialSul)
-            );
-        ?>
-        <pre><?php var_dump($produtos) ?></pre>
-
-        <hr>
-
-        <h2>array_combine()</h2>
-        <p>Cria um novo array a partir de uma lista de valores e uma lista de chaves.</p>
-        <?php
-            // Lista de chaves
-            $games = ["Super_Mario", "Sonic", "Final_Fantasy"];
-
-            // Lista de valores
-            $precos = [99, 50, 129];
-
-            $catalogo = array_combine($games, $precos);
-        ?>
-        <pre><?php var_dump($catalogo) ?></pre>
-
-        <hr>
-
-        <h2>array_map()</h2>
-        <p>Percorre cada elemento de um array, executa uma função (chamada de callback) e gera um novo array com os resultados.</p>
-        <?php
-            $catalogoComDesconto = array_map(function(float $preco):float{
-                return $preco - $preco * 0.10;
-            }, $catalogo);
-        ?>
-        <pre><?php var_dump($catalogoComDesconto) ?></pre>
-
-        <hr>
-
-        <h2>array_column()</h2>
-        <p>Retorna um novo array com os valores de uma determinada chave associativa.</p>
-        <?php
-            $servicos = [
-                ["codigo" => 3, "tipo" => "Limpeza", "status" => "Concluído"],
-                ["codigo" => 12, "tipo" => "Manutenção", "status" => "Concluído"],
-                ["codigo" => 1, "tipo" => "Reparo", "status" => "Pendente"],
-                ["codigo" => 7, "tipo" => "Consultoria", "status" => "Concluído"],
-                ["codigo" => 4, "tipo" => "Instalação", "status" => "Concluído"]
-            ];
-
-            $tipoServicos = array_column($servicos, "tipo");
-        ?>
-
-        <pre><?php var_dump($tipoServicos) ?></pre>
-
-        <hr>
-
-        <h2>array_filter()</h2>
-        <p>Retorna valores para um novo array baseado em alguma condição/critério.</p>
-<?php
-$servicosConcluidos = array_filter(
-    $servicos, fn(array $servico):bool => $servico["status"] === "Concluído"
-);
-?>
-
-    <pre><?php var_dump($servicosConcluidos) ?></pre>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
 </body>
 </html>
