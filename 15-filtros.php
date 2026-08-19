@@ -36,6 +36,18 @@
         <?php if($redeSocialValida): ?>
             <a href="<?= $redeSocial ?>" class="btn btn-info">Me siga no LinkedIn</a>
         <?php endif; ?>
+
+        <hr>
+
+        <h2>Sanitização</h2>
+        <h3>FILTER_SANITIZE_EMAIL</h3>
+        <?php 
+        $contato = "/leonardo.noliveira8 @sp.;senac.br ( >";
+        $contatoSanitizado = filter_var($contato, FILTER_SANITIZE_EMAIL);
+        ?>
+            <p>Contato <b>sem</b> sanitização: <?= $contato ?></p>
+            <p>Contato <b>com</b> sanitização: <?= $contatoSanitizado ?></p>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
