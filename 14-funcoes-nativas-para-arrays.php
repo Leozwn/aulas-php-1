@@ -131,6 +131,14 @@
         <hr>
 
         <h2>array_filter()</h2>
+        <p>Retorna valores para um novo array baseado em alguma condição/critério.</p>
+<?php
+$servicosConcluidos = array_filter(
+    $servicos, fn(array $servico):bool => $servico["status"] === "Concluído"
+);
+?>
+
+    <pre><?php var_dump($servicosConcluidos) ?></pre>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
