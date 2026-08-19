@@ -1,5 +1,6 @@
 <?php // recursos.php
 const ALUNO = "Léo";
+define("ESCOLA", "Senac Penha");
 $curso = "Técnico em Informática para Internet";
 $tecnologias = ["PHP", "SQL", "HTML", "CSS", "JavaScript"];
 function verificarIdade(int $idade):string {

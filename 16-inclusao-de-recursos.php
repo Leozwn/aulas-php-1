@@ -18,6 +18,11 @@
     natureza, permitindo
     assim a reutilização de código.</p>
 
+    <h2>Exemplos de uso/acesso</h2>
+    <p>Estamos estudando no <?= ESCOLA ?> Fazendo o curso <?= $curso ?>.</p>
+    <p>Para fazer este curso o aluno deve ser maior idade.</p>
+    <p>Como você <?= ALUNO ?> tem 20 anos, você é <?= verificarIdade(20) ?></p> 
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
