@@ -46,7 +46,7 @@
                     <input type="number" class="form-control" id="quantidade" name="quantidade" min="0" max="1000" step="1" required>
                 </div>
 
-                <button type="submit" class="btn btn-primary w-100">Cadastrar Produto</button>
+                <button type="submit" class="btn btn-primary w-100">Cadastra o Produto ai tiow!</button>
             </form>
         </div>
     </div>
